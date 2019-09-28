@@ -1,4 +1,3 @@
-import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
     public class HomeTask {
+        @Test
 
         public void githubLoginTest() throws InterruptedException {
 
@@ -18,17 +18,19 @@ import org.testng.annotations.Test;
             options.addArguments("--start-maximized");
             WebDriver driver = new ChromeDriver(options);
             driver.get("https://github.com/");
-           // Thread.sleep(5000);  // Let the user actually see something!
             WebElement signInButton = driver.findElement(By.xpath("/html/body/div[1]/header/div/div[2]/div[2]/a[1]"));
             signInButton.click();
-            WebElement signIn = driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
+            WebElement signInField = driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
             WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
-            signIn.sendKeys(login);
+            signInField.sendKeys(login);
             password.sendKeys(pass);
             WebElement signIn = driver.findElement(By.xpath("/html/body/div[3]/main/div/form/div[3]/input[8]"));
             signIn.click();
-
-            //Thread.sleep(5000);  // Let the user actually see something!
+            WebElement detailsMenu = driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/summary"));
+            detailsMenu.click();
+            WebElement profileLink = driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/details-menu/div[1]/a/strong"));
+            String profile = profileLink.getText();
+            assert login.equals(profile);
             driver.quit();
 
 
