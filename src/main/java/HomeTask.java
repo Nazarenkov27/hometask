@@ -3,36 +3,37 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-    public class HomeTask {
+public class HomeTask {
+
         @Test
 
-        public void githubLoginTest() throws InterruptedException {
-
+        public void githubLoginTest()  {
             String login = "Nazarenkov27";
-            String pass = "sc98090um";
+            String pass = "d711815n";
             System.setProperty("webdriver.chrome.driver", "d://chromedriver/chromedriver.exe");
-
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             WebDriver driver = new ChromeDriver(options);
             driver.get("https://github.com/");
-            WebElement signInButton = driver.findElement(By.xpath("/html/body/div[1]/header/div/div[2]/div[2]/a[1]"));
+
+            WebElement signInButton = driver.findElement(By.xpath("//a[@href = '/login']"));
             signInButton.click();
             WebElement signInField = driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
             WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
             signInField.sendKeys(login);
             password.sendKeys(pass);
-            WebElement signIn = driver.findElement(By.xpath("/html/body/div[3]/main/div/form/div[3]/input[8]"));
+            WebElement signIn = driver.findElement(By.xpath("//input[@type= 'submit']"));
             signIn.click();
-            WebElement detailsMenu = driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/summary"));
+            WebElement detailsMenu = driver.findElement(By.xpath("//summary[contains(@aria-label,'View profile')]"));
             detailsMenu.click();
-            WebElement profileLink = driver.findElement(By.xpath("/html/body/div[1]/header/div[7]/details/details-menu/div[1]/a/strong"));
-            String profile = profileLink.getText();
-            assert login.equals(profile);
+            WebElement profileLink = driver.findElement(By.xpath("//*/a[@role='menuitem']/strong"));
+            Assert.assertEquals(login, profileLink.getText());
+
             driver.quit();
 
+             }
 
-        }
     }
