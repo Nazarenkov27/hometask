@@ -19,10 +19,10 @@ public class HomeTask {
             WebDriver driver = new ChromeDriver(options);
             driver.get("https://github.com/");
 
-            WebElement signInButton = driver.findElement(By.xpath("//a[@href = '/login']"));
+            WebElement signInButton = driver.findElement(By.xpath("//a[@href = '/login' ]"));
             signInButton.click();
-            WebElement signInField = driver.findElement(By.xpath("//*[@id=\"login_field\"]"));
-            WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+            WebElement signInField = driver.findElement(By.xpath("//input[@name = 'login' ]"));
+            WebElement password = driver.findElement(By.xpath("//input[@name = 'password' ]"));
             signInField.sendKeys(login);
             password.sendKeys(pass);
             WebElement signIn = driver.findElement(By.xpath("//input[@type= 'submit']"));
