@@ -3,8 +3,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.*;
-
 public class HomeTaskTest extends TestBase {
 
     String login = "Nazarenkov27";
@@ -17,7 +15,7 @@ public class HomeTaskTest extends TestBase {
     String profileLinkLocator = "//a[@role='menuitem']/strong";
 
     @Test
-    public void githubLoginTest() throws IOException {
+    public void githubLoginTest() {
 
         driver.navigate().to("https://github.com/");
         driver.findElement(By.xpath(signInButtonLocator)).click();
