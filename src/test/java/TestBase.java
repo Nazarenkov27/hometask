@@ -6,7 +6,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
-import java.io.File;
+import java.io.*;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Listeners
@@ -15,8 +16,13 @@ class TestBase {
     WebDriver driver;
 
     @BeforeSuite
-    public void before() {
-        File chromeDriver = new File("d://chromedriver/chromedriver.exe");
+    public void before() throws IOException {
+
+        InputStream input = new FileInputStream("src/main/resources/config.properties");
+        Properties prop = new Properties();
+        prop.load(input);
+
+        File chromeDriver = new File(prop.getProperty("driverPath"));
         ChromeDriverService service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(chromeDriver)
                 .usingAnyFreePort()
@@ -33,5 +39,3 @@ class TestBase {
 
     }
 }
-
-
