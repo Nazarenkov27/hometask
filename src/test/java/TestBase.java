@@ -1,14 +1,12 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
-import java.io.*;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Listeners
@@ -20,25 +18,18 @@ class TestBase {
     LogInPage logInPage;
 
     @BeforeSuite
-    public void before() throws IOException {
+    public void before() {
 
-        InputStream input = new FileInputStream("src/main/resources/config.properties");
-        Properties prop = new Properties();
-        prop.load(input);
-
-        File chromeDriver = new File(prop.getProperty("driverPath"));
-        ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(chromeDriver)
-                .usingAnyFreePort()
-                .build();
-        ChromeOptions options = new ChromeOptions().addArguments("--start-maximized"); //window size doesn't work here
-        driver = new ChromeDriver(service, options);
+        WebDriverManager.chromedriver().version("77.0.3865.40").setup();
+        ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
-        homePage = new HomePage(driver,wait);
-        logInPage = new LogInPage(driver,wait);
+        homePage = new HomePage(driver, wait);
+        logInPage = new LogInPage(driver, wait);
     }
+
     @AfterSuite
     public void tearDown() {
         driver.quit();
