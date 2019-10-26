@@ -20,7 +20,7 @@ class TestBase {
     @BeforeSuite
     public void before() {
 
-        WebDriverManager.chromedriver().version("77.0.3865.40").setup();
+        WebDriverManager.chromedriver().version("78.0.3904.70").setup();
         ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
