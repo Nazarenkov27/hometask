@@ -3,11 +3,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +20,9 @@ class TestBase {
     private WebDriverWait wait;
     HomePage homePage;
     LogInPage logInPage;
+    BlogPage blogPage;
 
-    @BeforeSuite
+    @BeforeTest
     public void before() throws IOException {
 
         InputStream input = new FileInputStream("src/main/resources/config.properties");
@@ -38,9 +41,10 @@ class TestBase {
         wait = new WebDriverWait(driver, 10);
         homePage = new HomePage(driver,wait);
         logInPage = new LogInPage(driver,wait);
+        blogPage = new BlogPage(driver,wait);
     }
-    @AfterSuite
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterSuite
+//    public void tearDown() {
+//        driver.quit();
+//    }
 }

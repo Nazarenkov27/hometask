@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="githubTestSuite">
+    <test name="GithubLoginTest">
+        <classes>
+            <class name="GithubLoginTest">
+                <methods>
+                    <include name="githubLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="BlogTest">
+        <classes>
+            <class name="BlogTest">
+                <methods>
+                    <include name="blogTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

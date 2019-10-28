@@ -17,6 +17,8 @@ public class HomePage {
     private WebElement detailsMenu;
     @FindBy(xpath = "//a[@role='menuitem']/strong")
     private WebElement profileLink;
+    @FindBy(xpath = "//*[contains(@href, 'blog')]")
+    private WebElement blogLink;
 
     public void showMenu() {
         wait.until(ExpectedConditions.visibilityOf(detailsMenu));
@@ -27,4 +29,10 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOf(profileLink));
         return profileLink.getText();
     }
+
+    public void goToBlog() {
+        wait.until(ExpectedConditions.visibilityOf(blogLink));
+        blogLink.click();
+    }
+
 }
