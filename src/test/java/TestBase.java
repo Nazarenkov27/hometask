@@ -3,14 +3,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Listeners
@@ -25,11 +23,7 @@ class TestBase {
     @BeforeTest
     public void before() throws IOException {
 
-        InputStream input = new FileInputStream("src/main/resources/config.properties");
-        Properties prop = new Properties();
-        prop.load(input);
-
-        File chromeDriver = new File(prop.getProperty("driverPath"));
+        File chromeDriver = new File(PropertyLoader.loadProperty("chrome.driver.path"));
         ChromeDriverService service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(chromeDriver)
                 .usingAnyFreePort()
@@ -39,12 +33,13 @@ class TestBase {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
-        homePage = new HomePage(driver,wait);
-        logInPage = new LogInPage(driver,wait);
-        blogPage = new BlogPage(driver,wait);
+        homePage = new HomePage(driver, wait);
+        logInPage = new LogInPage(driver, wait);
+        blogPage = new BlogPage(driver, wait);
     }
-//    @AfterSuite
-//    public void tearDown() {
-//        driver.quit();
-//    }
+
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 }

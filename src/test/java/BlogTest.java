@@ -10,12 +10,13 @@ public class BlogTest extends TestBase {
 
     @Test
     public void blogTest() {
-        driver.navigate().to("https://github.com/login");
+        driver.navigate().to(PropertyLoader.loadProperty("github.link") + "login/");
         logInPage.loginInput(login);
         logInPage.passwordInput(pass);
         logInPage.loginSubmit();
         homePage.goToBlog();
         Assert.assertEquals(logoName, blogPage.getLogoName());
         Assert.assertEquals(allPostsHeader, blogPage.getPostsHeader());
+        Assert.assertEquals(driver.getCurrentUrl(), "https://github.blog/");
     }
 }
