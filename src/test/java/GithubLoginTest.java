@@ -8,7 +8,7 @@ public class GithubLoginTest extends TestBase {
 
     @Test
     public void githubLoginTest() {
-        driver.navigate().to("https://github.com/login");
+        driver.navigate().to(PropertyLoader.loadProperty("github.link") + "login/");
         logInPage.loginInput(login);
         logInPage.passwordInput(pass);
         logInPage.loginSubmit();
