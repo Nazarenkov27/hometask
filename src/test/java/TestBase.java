@@ -19,7 +19,6 @@ class TestBase {
     BlogPage blogPage;
     RepositoryPage repositoryPage;
 
-
     @BeforeTest
     public void before() {
 

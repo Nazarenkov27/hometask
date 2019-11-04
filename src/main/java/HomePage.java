@@ -35,6 +35,4 @@ public class HomePage {
         blogLink.click();
     }
 
-
-
 }

@@ -11,8 +11,7 @@ public class RepositoryPage {
 
     private WebDriverWait wait;
 
-
-    public RepositoryPage (WebDriver driver, WebDriverWait wait) {
+    public RepositoryPage(WebDriver driver, WebDriverWait wait) {
         PageFactory.initElements(driver, this);
         this.wait = wait;
     }
