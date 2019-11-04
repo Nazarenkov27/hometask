@@ -34,4 +34,7 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOf(blogLink));
         blogLink.click();
     }
+
+
+
 }
