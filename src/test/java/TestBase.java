@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 class TestBase {
 
     WebDriver driver;
+    WebDriver ffdriver;
     private WebDriverWait wait;
     HomePage homePage;
     LogInPage logInPage;
@@ -28,10 +30,15 @@ class TestBase {
         wait = new WebDriverWait(driver, 10);
         homePage = new HomePage(driver, wait);
         logInPage = new LogInPage(driver, wait);
+
+        WebDriverManager.firefoxdriver().setup();
+        ffdriver = new FirefoxDriver();
+
     }
 
     @AfterSuite
     public void tearDown() {
         driver.quit();
+        ffdriver.quit();
     }
 }
