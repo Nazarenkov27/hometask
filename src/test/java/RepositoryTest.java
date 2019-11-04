@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class RepositoryTest extends TestBase {
     String login = "Nazarenkov27";
     String pass = "d711815n";
-    int filesNumber = 9;
+    int filesNumber = 9git;
 
     @Test
     public void repositoryTest() {
