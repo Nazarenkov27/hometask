@@ -13,6 +13,7 @@ public class RepositoryTest extends TestBase {
         logInPage.passwordInput(pass);
         logInPage.loginSubmit();
         driver.navigate().to(PropertyLoader.loadProperty("github.link") + "bonigarcia/webdrivermanager");
-        Assert.assertEquals(repositoryPage.getFilesNumber() + repositoryPage.getDirectoriesNumber(), expectedItemsNumber);
+        int actualItemsNumber = repositoryPage.getFilesNumber() + repositoryPage.getDirectoriesNumber();
+        Assert.assertEquals(actualItemsNumber, expectedItemsNumber);
     }
 }
