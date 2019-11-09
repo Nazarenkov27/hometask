@@ -16,12 +16,20 @@ public class RepositoryPage {
         this.wait = wait;
     }
 
-    @FindBy(xpath = "//tbody/tr[contains(@class, 'js-navigation-item')]")
+    @FindBy(xpath = "//tbody/tr[td[@class='icon']/*[name()='svg'][@aria-label='file']]")
     private List<WebElement> filesList;
+    @FindBy(xpath = "//tbody/tr[td[@class='icon']/*[name()='svg'][@aria-label='directory']]")
+    private List<WebElement> directoriesList;
 
     public int filesCounter() {
         wait.until(ExpectedConditions.visibilityOf(filesList.get(0)));
         int filesCount = filesList.size();
         return filesCount;
+    }
+
+    public int directoriesCounter() {
+        wait.until(ExpectedConditions.visibilityOf(directoriesList.get(0)));
+        int directoriesCount = directoriesList.size();
+        return directoriesCount;
     }
 }
