@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class RepositoryTest extends TestBase {
     String login = "Nazarenkov27";
     String pass = "d711815n";
-    int itemsNumber = 9;
+    int expectedItemsNumber = 9;
 
     @Test
     public void repositoryTest() {
@@ -13,6 +13,6 @@ public class RepositoryTest extends TestBase {
         logInPage.passwordInput(pass);
         logInPage.loginSubmit();
         driver.navigate().to(PropertyLoader.loadProperty("github.link") + "bonigarcia/webdrivermanager");
-        Assert.assertEquals(repositoryPage.filesCounter() + repositoryPage.directoriesCounter(), itemsNumber);
+        Assert.assertEquals(repositoryPage.getFilesNumber() + repositoryPage.getDirectoriesNumber(), expectedItemsNumber);
     }
 }

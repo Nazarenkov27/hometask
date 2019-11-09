@@ -21,13 +21,13 @@ public class RepositoryPage {
     @FindBy(xpath = "//tbody/tr[td[@class='icon']/*[name()='svg'][@aria-label='directory']]")
     private List<WebElement> directoriesList;
 
-    public int filesCounter() {
+    public int getFilesNumber() {
         wait.until(ExpectedConditions.visibilityOf(filesList.get(0)));
         int filesCount = filesList.size();
         return filesCount;
     }
 
-    public int directoriesCounter() {
+    public int getDirectoriesNumber() {
         wait.until(ExpectedConditions.visibilityOf(directoriesList.get(0)));
         int directoriesCount = directoriesList.size();
         return directoriesCount;
