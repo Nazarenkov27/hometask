@@ -48,4 +48,13 @@ public class UserHelper extends PageManager {
     public int getDirectoriesNumber() {
         return repositoryPage.getDirectoriesNumber();
     }
+
+    public String getAlertMessage() {
+        return sessionPage.getAlertMessage();
+    }
+
+    public void closeAlert() {
+        sessionPage.closeAlert();
+    }
+
 }

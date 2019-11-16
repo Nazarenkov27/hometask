@@ -10,6 +10,7 @@ public class PageManager {
     public LogInPage logInPage;
     public BlogPage blogPage;
     public RepositoryPage repositoryPage;
+    public SessionPage sessionPage;
 
     public PageManager(WebDriver webDriver) {
         this.driver = webDriver;
@@ -18,6 +19,7 @@ public class PageManager {
         logInPage = initElements(new LogInPage(this));
         blogPage = initElements(new BlogPage(this));
         repositoryPage = initElements(new RepositoryPage(this));
+        sessionPage = initElements(new SessionPage(this));
     }
 
     private <T extends Page> T initElements(T page) {
