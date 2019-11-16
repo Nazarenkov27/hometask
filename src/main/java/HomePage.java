@@ -1,16 +1,11 @@
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
-    private WebDriverWait wait;
+public class HomePage extends Page {
 
-    public HomePage(WebDriver driver, WebDriverWait wait) {
-        PageFactory.initElements(driver, this);
-        this.wait = wait;
+    public HomePage(PageManager pages) {
+        super(pages);
     }
 
     @FindBy(xpath = "//summary[contains(@aria-label,'View profile')]")
@@ -19,6 +14,8 @@ public class HomePage {
     private WebElement profileLink;
     @FindBy(xpath = "//*[contains(@href, 'blog')]")
     private WebElement blogLink;
+    @FindBy(xpath = "//input[@name = 'q']")
+    private WebElement searchField;
 
     public void showMenu() {
         wait.until(ExpectedConditions.visibilityOf(detailsMenu));
@@ -33,6 +30,17 @@ public class HomePage {
     public void goToBlog() {
         wait.until(ExpectedConditions.visibilityOf(blogLink));
         blogLink.click();
+    }
+
+    public void searchForRepository(String text) {
+        wait.until(ExpectedConditions.visibilityOf(searchField));
+        searchField.clear();
+        searchField.sendKeys(text);
+    }
+
+    public String getSearchFieldValue() {
+        wait.until(ExpectedConditions.visibilityOf(searchField));
+        return searchField.getAttribute("value");
     }
 
 }

@@ -1,43 +1,25 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
-
-@Listeners
 class TestBase {
+    AppManager app = SingletonAppManager.getInstance().manager;
+    WebDriver driver = AppManager.getWebDriver();
 
-    WebDriver driver;
-    private WebDriverWait wait;
-    HomePage homePage;
-    LogInPage logInPage;
-    BlogPage blogPage;
-    RepositoryPage repositoryPage;
-
-    @BeforeTest
-    public void before() {
-
-        WebDriverManager.chromedriver().version("78.0.3904.70").setup();
-        ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
-        driver = new ChromeDriver(options);
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
-        homePage = new HomePage(driver, wait);
-        logInPage = new LogInPage(driver, wait);
-        blogPage = new BlogPage(driver, wait);
-        repositoryPage = new RepositoryPage(driver, wait);
-
+    @BeforeMethod()
+    public void beforeMethod() {
+        driver.manage().deleteAllCookies();
+        driver.navigate().to(PropertyLoader.loadProperty("github.link"));
     }
 
-    @AfterTest
+    @AfterMethod()
+    public void afterMethod() {
+        driver.navigate().to(PropertyLoader.loadProperty("github.link") + "logout/");
+    }
+
+    @AfterSuite()
     public void tearDown() {
-        driver.quit();
+        AppManager.getWebDriver().quit();
     }
 }
