@@ -25,6 +25,10 @@ public class UserHelper extends PageManager {
         homePage.showMenu();
     }
 
+    public void openNotificationsPage() {
+        homePage.openNotificationsPage();
+    }
+
     public String getProfileName() {
         return homePage.getProfileName();
     }
@@ -57,4 +61,11 @@ public class UserHelper extends PageManager {
         sessionPage.closeAlert();
     }
 
+    public int getTabsNumber() {
+        return notificationsPage.getTabsNumber();
+    }
+
+    public String getFirstTabName() {
+        return notificationsPage.getFirstTabName();
+    }
 }

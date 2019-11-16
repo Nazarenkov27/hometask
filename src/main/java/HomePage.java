@@ -16,10 +16,17 @@ public class HomePage extends Page {
     private WebElement blogLink;
     @FindBy(xpath = "//input[@name = 'q']")
     private WebElement searchField;
+    @FindBy(xpath = "//span[@class = 'mail-status ']/..")
+    private WebElement notificationIcon;
 
     public void showMenu() {
         wait.until(ExpectedConditions.visibilityOf(detailsMenu));
         detailsMenu.click();
+    }
+
+    public void openNotificationsPage() {
+        wait.until(ExpectedConditions.visibilityOf(notificationIcon));
+        notificationIcon.click();
     }
 
     public String getProfileName() {

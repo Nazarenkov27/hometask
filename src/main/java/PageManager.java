@@ -11,6 +11,7 @@ public class PageManager {
     public BlogPage blogPage;
     public RepositoryPage repositoryPage;
     public SessionPage sessionPage;
+    public NotificationsPage notificationsPage;
 
     public PageManager(WebDriver webDriver) {
         this.driver = webDriver;
@@ -20,6 +21,7 @@ public class PageManager {
         blogPage = initElements(new BlogPage(this));
         repositoryPage = initElements(new RepositoryPage(this));
         sessionPage = initElements(new SessionPage(this));
+        notificationsPage = initElements(new NotificationsPage(this));
     }
 
     private <T extends Page> T initElements(T page) {

@@ -12,6 +12,6 @@ public class FailedLoginTest extends TestBase {
         app.getUserHelper().loginAs(wrongLogin, PropertyLoader.loadProperty("github.pass"));
         Assert.assertEquals(alertMessage, app.getUserHelper().getAlertMessage());
         app.getUserHelper().closeAlert();
-        Assert.assertNotEquals(PropertyLoader.loadProperty("github.link") + "session/", driver.getCurrentUrl());
+        Assert.assertNotEquals(driver.getCurrentUrl(),PropertyLoader.loadProperty("github.link"));
     }
 }
