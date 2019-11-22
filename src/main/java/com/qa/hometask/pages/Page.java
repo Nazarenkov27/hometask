@@ -1,3 +1,6 @@
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;

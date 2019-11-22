@@ -1,9 +1,12 @@
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SessionPage extends Page {
-    SessionPage(PageManager pages) {
+    public SessionPage(PageManager pages) {
         super(pages);
     }
 

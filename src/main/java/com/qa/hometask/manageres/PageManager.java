@@ -1,10 +1,13 @@
+package com.qa.hometask.manageres;
+
+import com.qa.hometask.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
 public class PageManager {
 
-    private WebDriver driver;
+    public WebDriver driver;
     public HomePage homePage;
     public SearchPage searchPage;
     public LogInPage logInPage;
@@ -29,7 +32,7 @@ public class PageManager {
         return page;
     }
 
-    WebDriver getDriver() {
+    public WebDriver getDriver() {
         return driver;
     }
 }

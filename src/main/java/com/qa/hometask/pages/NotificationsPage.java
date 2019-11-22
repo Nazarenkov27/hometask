@@ -1,3 +1,6 @@
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -5,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class NotificationsPage extends Page {
-    NotificationsPage(PageManager pages) {
+    public NotificationsPage(PageManager pages) {
         super(pages);
     }
 

@@ -1,3 +1,6 @@
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;

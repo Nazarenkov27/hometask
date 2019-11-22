@@ -1,3 +1,5 @@
+package com.qa.hometask.manageres;
+
 public class SingletonAppManager {
     private static SingletonAppManager singleInstance = null;
     public AppManager manager;

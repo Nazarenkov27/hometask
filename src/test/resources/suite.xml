@@ -45,20 +45,20 @@
             </class>
         </classes>
     </test>
-    <test name="ViewerTest">
-        <classes>
-            <class name="ViewerTest">
-                <methods>
-                    <include name="viewerTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
     <test name="NotificationsTest">
         <classes>
             <class name="NotificationsTest">
                 <methods>
                     <include name="notificationsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ViewerTest">
+        <classes>
+            <class name="ViewerTest">
+                <methods>
+                    <include name="viewerTest"/>
                 </methods>
             </class>
         </classes>

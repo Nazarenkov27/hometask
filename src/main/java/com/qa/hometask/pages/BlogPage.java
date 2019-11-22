@@ -1,3 +1,6 @@
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,7 +12,7 @@ public class BlogPage extends Page {
     @FindBy(xpath = "//*[contains(@class,'all-posts')]/h3")
     private WebElement allPostsHeader;
 
-    BlogPage(PageManager pages) {
+    public BlogPage(PageManager pages) {
         super(pages);
     }
 

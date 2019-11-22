@@ -1,8 +1,10 @@
+package com.qa.hometask.utils;
+
 import java.io.IOException;
 import java.util.Properties;
 
 public class PropertyLoader {
-    private static final String GENERAL_PROP_FILE = "config.properties";
+    private static final String GENERAL_PROP_FILE = "/config.properties";
 
     public static String loadProperty(String name) {
         Properties props = new Properties();

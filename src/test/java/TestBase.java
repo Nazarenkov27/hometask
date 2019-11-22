@@ -1,3 +1,5 @@
+import com.qa.hometask.manageres.AppManager;
+import com.qa.hometask.manageres.SingletonAppManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -7,15 +9,20 @@ class TestBase {
     AppManager app = SingletonAppManager.getInstance().manager;
     WebDriver driver = AppManager.getWebDriver();
 
-    @BeforeMethod()
-    public void beforeMethod() {
-        driver.manage().deleteAllCookies();
-        driver.navigate().to(PropertyLoader.loadProperty("github.link"));
+    @BeforeMethod(onlyForGroups = "login")
+    public void beforeLogin(){
+        app.getNavigationHelper().goToGithubLink("login/");
+    }
+
+    @BeforeMethod
+    public void before(){
+        app.getNavigationHelper().goToGithubLink("");
     }
 
     @AfterMethod()
     public void afterMethod() {
-        driver.navigate().to(PropertyLoader.loadProperty("github.link") + "logout/");
+        app.getNavigationHelper().goToGithubLink("logout/");
+        driver.manage().deleteAllCookies();
     }
 
     @AfterSuite()
