@@ -22,7 +22,7 @@ public class AppManager {
 
     AppManager() {
         WebDriverManager.chromedriver().version("78.0.3904.70").setup();
-        ChromeOptions options = new ChromeOptions().addArguments("start-maximized").addArguments("--incognito");
+        ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);

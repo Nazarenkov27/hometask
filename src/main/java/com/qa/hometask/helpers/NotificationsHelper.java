@@ -1,7 +1,7 @@
 package com.qa.hometask.helpers;
 
-        import com.qa.hometask.manageres.AppManager;
-        import com.qa.hometask.manageres.PageManager;
+import com.qa.hometask.manageres.AppManager;
+import com.qa.hometask.manageres.PageManager;
 
 public class NotificationsHelper extends PageManager {
     public NotificationsHelper() {
@@ -15,5 +15,4 @@ public class NotificationsHelper extends PageManager {
     public void closeAlert() {
         sessionPage.closeAlert();
     }
-
 }
