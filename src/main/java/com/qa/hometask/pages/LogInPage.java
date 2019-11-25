@@ -1,17 +1,11 @@
-import org.openqa.selenium.WebDriver;
+package com.qa.hometask.pages;
+
+import com.qa.hometask.manageres.PageManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LogInPage {
-    private WebDriverWait wait;
-
-    public LogInPage(WebDriver driver, WebDriverWait wait) {
-        PageFactory.initElements(driver, this);
-        this.wait = wait;
-    }
+public class LogInPage extends Page {
 
     @FindBy(xpath = "//input[@name = 'login' ]")
     private WebElement logInField;
@@ -20,6 +14,9 @@ public class LogInPage {
     @FindBy(xpath = "//input[@type= 'submit']")
     private WebElement signInButton;
 
+    public LogInPage(PageManager pages) {
+        super(pages);
+    }
 
     public void loginInput(String text) {
         wait.until(ExpectedConditions.visibilityOf(logInField));

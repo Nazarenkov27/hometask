@@ -1,22 +1,18 @@
+import com.qa.hometask.utils.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BlogTest extends TestBase {
 
-    String login = "Nazarenkov27";
-    String pass = "d711815n";
     String logoName = "The GitHub Blog";
     String allPostsHeader = "All posts";
 
-    @Test
+    @Test(groups = "login")
     public void blogTest() {
-        driver.navigate().to(PropertyLoader.loadProperty("github.link") + "login/");
-        logInPage.loginInput(login);
-        logInPage.passwordInput(pass);
-        logInPage.loginSubmit();
-        homePage.goToBlog();
-        Assert.assertEquals(logoName, blogPage.getLogoName());
-        Assert.assertEquals(allPostsHeader, blogPage.getPostsHeader());
+        app.getUserHelper().loginAs(PropertyLoader.loadProperty("github.login"), PropertyLoader.loadProperty("github.pass"));
+        app.getNavigationHelper().goToBlog();
+        Assert.assertEquals(logoName, app.getAttributesHelper().getLogoName());
+        Assert.assertEquals(allPostsHeader, app.getAttributesHelper().getPostsHeader());
         Assert.assertEquals(driver.getCurrentUrl(), "https://github.blog/");
     }
 }

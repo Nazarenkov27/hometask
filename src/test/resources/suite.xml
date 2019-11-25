@@ -1,39 +1,66 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="githubTestSuite">
-<test name="GithubLoginTest">
-    <classes>
-        <class name="GithubLoginTest">
-            <methods>
-                <include name="githubLoginTest"/>
-            </methods>
-        </class>
-    </classes>
-</test>
-<test name="BlogTest">
-    <classes>
-        <class name="BlogTest">
-            <methods>
-                <include name="blogTest"/>
-            </methods>
-        </class>
-    </classes>
-</test>
-<test name="RepositoryTest">
-    <classes>
-        <class name="RepositoryTest">
-            <methods>
-                <include name="repositoryTest"/>
-            </methods>
-        </class>
-    </classes>
-</test>
-<test name="RepositoryItemsTest">
-    <classes>
-        <class name="RepositoryItemsTest">
-            <methods>
-                <include name="repositoryItemsTest"/>
-            </methods>
-        </class>
-    </classes>
-</test>
+    <test name="GithubLoginTest">
+        <classes>
+            <class name="GithubLoginTest">
+                <methods>
+                    <include name="githubLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="FailedLoginTest">
+        <classes>
+            <class name="FailedLoginTest">
+                <methods>
+                    <include name="failedLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="BlogTest">
+        <classes>
+            <class name="BlogTest">
+                <methods>
+                    <include name="blogTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="RepositoryTest">
+        <classes>
+            <class name="RepositoryTest">
+                <methods>
+                    <include name="repositoryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="RepositoryItemsTest">
+        <classes>
+            <class name="RepositoryItemsTest">
+                <methods>
+                    <include name="repositoryItemsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="NotificationsTest">
+        <classes>
+            <class name="NotificationsTest">
+                <methods>
+                    <include name="notificationsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ViewerTest">
+        <classes>
+            <class name="ViewerTest">
+                <methods>
+                    <include name="viewerTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
