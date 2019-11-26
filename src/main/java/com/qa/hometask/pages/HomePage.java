@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends Page {
 
+
     public HomePage(PageManager pages) {
         super(pages);
     }
+
 
     @FindBy(xpath = "//summary[contains(@aria-label,'View profile')]")
     private WebElement detailsMenu;
@@ -46,11 +48,12 @@ public class HomePage extends Page {
         wait.until(ExpectedConditions.visibilityOf(searchField));
         searchField.clear();
         searchField.sendKeys(text);
+
     }
 
     public String getSearchFieldValue() {
         wait.until(ExpectedConditions.visibilityOf(searchField));
         return searchField.getAttribute("value");
     }
-
 }
+

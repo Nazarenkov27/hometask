@@ -10,12 +10,12 @@ class TestBase {
     WebDriver driver = AppManager.getWebDriver();
 
     @BeforeMethod(onlyForGroups = "login")
-    public void beforeLogin(){
+    public void beforeLogin() {
         app.getNavigationHelper().goToGithubLink("login/");
     }
 
     @BeforeMethod
-    public void before(){
+    public void before() {
         app.getNavigationHelper().goToGithubLink("");
     }
 

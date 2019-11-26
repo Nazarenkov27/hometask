@@ -1,9 +1,6 @@
 package com.qa.hometask.manageres;
 
-import com.qa.hometask.helpers.AttributesHelper;
-import com.qa.hometask.helpers.NavigationHelper;
-import com.qa.hometask.helpers.NotificationsHelper;
-import com.qa.hometask.helpers.UserHelper;
+import com.qa.hometask.helpers.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +14,7 @@ public class AppManager {
     private NavigationHelper navigationHelper;
     private NotificationsHelper notificationsHelper;
     private AttributesHelper attributesHelper;
+    private RepoHelper repoHelper;
     private static WebDriver driver;
     private WebDriverWait wait;
 
@@ -31,6 +29,7 @@ public class AppManager {
         navigationHelper = new NavigationHelper();
         notificationsHelper = new NotificationsHelper();
         attributesHelper = new AttributesHelper();
+        repoHelper = new RepoHelper();
     }
 
     public static WebDriver getWebDriver() {
@@ -40,14 +39,21 @@ public class AppManager {
     public UserHelper getUserHelper() {
         return userHelper;
     }
+
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
     public NotificationsHelper getNotificationsHelper() {
         return notificationsHelper;
     }
+
     public AttributesHelper getAttributesHelper() {
         return attributesHelper;
+    }
+
+    public RepoHelper getRepoHelper() {
+        return repoHelper;
     }
 
 }

@@ -22,5 +22,4 @@ public class UserHelper extends PageManager {
         return homePage.getProfileName();
     }
 
-
 }

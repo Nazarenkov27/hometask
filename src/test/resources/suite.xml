@@ -45,6 +45,15 @@
             </class>
         </classes>
     </test>
+    <test name="SearchResultTest">
+        <classes>
+            <class name="SearchResultTest">
+                <methods>
+                    <include name="searchResultTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
     <test name="NotificationsTest">
         <classes>
             <class name="NotificationsTest">

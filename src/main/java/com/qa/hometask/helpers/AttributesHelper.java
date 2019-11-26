@@ -32,15 +32,5 @@ public class AttributesHelper extends PageManager {
         return notificationsPage.getFirstTabName();
     }
 
-    public void searchForRepo(String text) {
-        homePage.searchForRepository(text);
-    }
 
-    public void selectFirstResult() {
-        searchPage.selectFirstSearchResult();
-    }
-
-    public String getSearchValue() {
-        return homePage.getSearchFieldValue();
-    }
 }

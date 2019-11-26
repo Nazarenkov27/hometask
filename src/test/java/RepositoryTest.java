@@ -8,7 +8,6 @@ public class RepositoryTest extends TestBase {
     @Test(groups = "login")
     public void repositoryTest() {
         app.getUserHelper().loginAs(PropertyLoader.loadProperty("github.login"), PropertyLoader.loadProperty("github.pass"));
-        //driver.navigate().to(PropertyLoader.loadProperty("github.link") + "bonigarcia/webdrivermanager");
         app.getNavigationHelper().goToGithubLink("bonigarcia/webdrivermanager");
         int actualItemsNumber = app.getAttributesHelper().getFilesNumber() + app.getAttributesHelper().getDirectoriesNumber();
         Assert.assertEquals(actualItemsNumber, expectedItemsNumber);
