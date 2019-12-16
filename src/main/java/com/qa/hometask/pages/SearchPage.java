@@ -23,6 +23,8 @@ public class SearchPage extends Page {
     private WebElement sortOptionsMenuLocator;
     @FindBy(xpath = "//details-menu/div[@class = 'select-menu-list']/a[3]")
     private WebElement fewerStarsOptionLocator;
+    @FindBy(xpath = "//a[@class='muted-link']")
+    private List<WebElement> repoRating;
 
     public void selectFirstSearchResult() {
         wait.until(ExpectedConditions.visibilityOf(firstSearchResult));
@@ -34,6 +36,11 @@ public class SearchPage extends Page {
         return searchResultList;
     }
 
+    public List<WebElement> getRepoRating() {
+        wait.until(ExpectedConditions.visibilityOf(repoRating.get(0)));
+        return repoRating;
+    }
+
     public void sortByFewerStars() {
 
         wait.until(ExpectedConditions.visibilityOf(sortOptionsMenuButtonLocator));
@@ -42,4 +49,6 @@ public class SearchPage extends Page {
         fewerStarsOptionLocator.click();
         wait.until(ExpectedConditions.stalenessOf(searchResultList.get(0)));
     }
+
+
 }

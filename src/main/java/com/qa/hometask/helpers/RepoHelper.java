@@ -37,4 +37,34 @@ public class RepoHelper extends PageManager {
     public void sortByFewerStars() {
         searchPage.sortByFewerStars();
     }
+
+
+    public List<String> getRepoRatingValue() {
+        List<String> list = new ArrayList<>();
+        for (WebElement item : searchPage.getRepoRating()) {
+            list.add(item.getText());
+        }
+        return list;
+
+    }
+
+
+    public int getRatingSum() {
+        int ratingSum = 0;
+        List<String> list = new ArrayList<>();
+        for (String repoRating : getRepoRatingValue()) {
+            if (repoRating.contains("k")) {
+                repoRating = repoRating.replaceAll("k", "");
+                if (repoRating.contains(".")) {
+                    ratingSum += Integer.parseInt(repoRating.replaceAll("\\.", "")) * 100;
+                } else {
+                    ratingSum += Integer.parseInt(repoRating) * 1000;
+                }
+            } else {
+                ratingSum += Integer.parseInt(repoRating);
+            }
+
+        }
+        return ratingSum;
+    }
 }

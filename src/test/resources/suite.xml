@@ -72,4 +72,13 @@
             </class>
         </classes>
     </test>
+    <test name="RepoRatingTest">
+        <classes>
+            <class name="RepoRatingTest">
+                <methods>
+                    <include name="repoRatingTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
