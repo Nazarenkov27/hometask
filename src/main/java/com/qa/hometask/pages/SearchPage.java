@@ -26,6 +26,7 @@ public class SearchPage extends Page {
     @FindBy(xpath = "//a[@class='muted-link']")
     private List<WebElement> repoRating;
 
+
     public void selectFirstSearchResult() {
         wait.until(ExpectedConditions.visibilityOf(firstSearchResult));
         firstSearchResult.click();

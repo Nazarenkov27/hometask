@@ -19,7 +19,7 @@ public class AppManager {
     private WebDriverWait wait;
 
     AppManager() {
-        WebDriverManager.chromedriver().version("78.0.3904.70").setup();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

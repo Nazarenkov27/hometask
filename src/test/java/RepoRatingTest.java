@@ -5,7 +5,7 @@ public class RepoRatingTest extends TestBase {
 
         @Test
         public void repoRatingTest()  {
-            app.getNavigationHelper().goToGithubLink("");
+            app.getNavigationHelper().goToGithubLink();
             app.getRepoHelper().searchForRepo("Java");
 //            List<String> repoRating = app.getRepoHelper().getRepoRatingValue();
 //            System.out.println(repoRating);

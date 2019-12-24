@@ -2,6 +2,7 @@ package com.qa.hometask.helpers;
 
 import com.qa.hometask.manageres.AppManager;
 import com.qa.hometask.manageres.PageManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -67,4 +68,11 @@ public class RepoHelper extends PageManager {
         }
         return ratingSum;
     }
+
+    public int getLanguageValue(String languageName) {
+        int languageValue = Integer.parseInt(driver.findElement(By.xpath("//a[contains(.,'" + languageName + "')]/span"))
+                .getText().replaceAll(",",""));
+        return languageValue;
+    }
+
 }

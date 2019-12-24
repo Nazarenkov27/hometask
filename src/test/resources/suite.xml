@@ -81,4 +81,13 @@
             </class>
         </classes>
     </test>
+    <test name="LanguageCountTest">
+        <classes>
+            <class name="LanguageCountTest">
+                <methods>
+                    <include name="languageCountTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

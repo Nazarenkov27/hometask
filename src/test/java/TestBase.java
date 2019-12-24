@@ -16,7 +16,7 @@ class TestBase {
 
     @BeforeMethod
     public void before() {
-        app.getNavigationHelper().goToGithubLink("");
+        app.getNavigationHelper().goToGithubLink();
     }
 
     @AfterMethod()

@@ -6,7 +6,7 @@ import java.util.List;
 public class SearchResultTest extends TestBase {
     @Test
     public void searchResultTest()  {
-        app.getNavigationHelper().goToGithubLink("");
+        app.getNavigationHelper().goToGithubLink();
         app.getRepoHelper().searchForRepo("Java");
         List<String> bestMatchRepoList = app.getRepoHelper().getRepoListValue();
         app.getRepoHelper().sortByFewerStars();
