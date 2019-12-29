@@ -6,5 +6,6 @@ public class Lessons {
         System.out.println(sum);
         System.out.println(number.getSum("hellooo!"));
         System.out.println(number.getSum(42));
+        System.out.println(number.getSum(0));
     }
 }
