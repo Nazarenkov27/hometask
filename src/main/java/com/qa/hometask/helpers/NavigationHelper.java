@@ -20,6 +20,7 @@ public class NavigationHelper extends PageManager {
     public void goToGithubLink(String link) {
         driver.navigate().to(PropertyLoader.loadProperty("github.link") + link);
     }
+
     public void goToGithubLink() {
         driver.navigate().to(PropertyLoader.loadProperty("github.link"));
     }

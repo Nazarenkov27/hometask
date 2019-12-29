@@ -71,7 +71,7 @@ public class RepoHelper extends PageManager {
 
     public int getLanguageValue(String languageName) {
         int languageValue = Integer.parseInt(driver.findElement(By.xpath("//a[contains(.,'" + languageName + "')]/span"))
-                .getText().replaceAll(",",""));
+                .getText().replaceAll(",", ""));
         return languageValue;
     }
 
