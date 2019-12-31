@@ -1,11 +1,26 @@
+import java.util.Random;
+
 public class Lessons {
+
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 3, 2, 1, 1, 2, 3};
-        Number number = new Number(arr);
-        String sum = String.valueOf(number.getSum(arr));
-        System.out.println(sum);
-        System.out.println(number.getSum("hellooo!"));
-        System.out.println(number.getSum(42));
-        System.out.println(number.getSum(0));
+
+        int[] randomArray = getRandomArray();
+
+        Number one = new Number(randomArray);
+        System.out.println();
+        System.out.println("The sum is: " + one.getSum());
+        System.out.println("The sum with string: " + one.getSum("random!"));
+        System.out.println("The sum with int: " + one.getSum(42));
+    }
+
+    public static int[] getRandomArray() {
+        Random random = new Random();
+        int[] randomArray = new int[random.nextInt(9) + 1];
+        System.out.print("Given array: " );
+        for (int i = 0; i < randomArray.length; i++) {
+            randomArray[i] = random.nextInt(21);
+            System.out.print(randomArray[i]+", ");
+        }
+        return randomArray;
     }
 }

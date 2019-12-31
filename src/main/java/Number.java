@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /*
 Создать модель (класс) "Number", который принимает (в констуркторе) !массив! с числами размером в n (0 < n < 10).
 У данной модели будет перегруженый метод "getSum". Данный метод суммирует все значения массива.
@@ -11,25 +9,16 @@ import java.util.Random;
 
 public class Number {
 
+    public int[] intArray;
+
     public Number(int[] intArray) {
-        if (intArray.length == 0 ^ intArray.length > 10) {
+        if (intArray.length == 0 || intArray.length > 10) {
             throw new IllegalArgumentException("Length should be from 1 to 9");
         }
+        this.intArray=intArray;
     }
 
-    public int getRandomArraySum() {
-        Random random = new Random();
-        int[] randomArray = new int[6];
-        int randomArraySum = 0;
-        for (int i = 0; i < randomArray.length; i++) {
-            randomArray[i] = random.nextInt(21);
-            randomArraySum += randomArray[i];
-        }
-
-        return randomArraySum;
-    }
-
-    public int getSum(int[] intArray) {
+    public int getSum() {
         int sum = 0;
         for (int num : intArray) {
             sum += num;
@@ -38,11 +27,11 @@ public class Number {
     }
 
     public String getSum(String string) {
-        return string + " " + getRandomArraySum();
+        return string + " " + getSum();
     }
 
     public int getSum(int number) {
-        return number + getRandomArraySum();
+        return number + getSum();
     }
 
 }
