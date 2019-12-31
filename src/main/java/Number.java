@@ -15,7 +15,7 @@ public class Number {
         if (intArray.length == 0 || intArray.length > 10) {
             throw new IllegalArgumentException("Length should be from 1 to 9");
         }
-        this.intArray=intArray;
+        this.intArray = intArray;
     }
 
     public int getSum() {
