@@ -14,6 +14,7 @@
         <github.link>https://github.com/</github.link>
         <github.login>Nazarenkov27</github.login>
         <github.pass>d711815n</github.pass>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,6 +38,18 @@
             <version>7.0.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.5</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
     <build>
         <resources>
@@ -44,6 +57,7 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>config.properties</include>
+                    <include>allure.properties</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
@@ -54,9 +68,20 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <reportVersion>2.3.1</reportVersion>
                 </configuration>
             </plugin>
         </plugins>
