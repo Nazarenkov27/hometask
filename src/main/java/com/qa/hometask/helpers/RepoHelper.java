@@ -2,6 +2,7 @@ package com.qa.hometask.helpers;
 
 import com.qa.hometask.manageres.AppManager;
 import com.qa.hometask.manageres.PageManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -22,6 +23,7 @@ public class RepoHelper extends PageManager {
         return homePage.getSearchFieldValue();
     }
 
+    @Step("Search for the repository {0}")
     public void searchForRepo(String text) {
         homePage.searchForRepository(text);
         searchPage.selectFirstSearchResult();

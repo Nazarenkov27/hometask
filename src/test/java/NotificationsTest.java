@@ -1,4 +1,5 @@
 import com.qa.hometask.utils.PropertyLoader;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,6 +9,7 @@ public class NotificationsTest extends TestBase {
     String expectedTabName = "Notifications";
 
     @Test(groups = "login")
+    @Description ("Notifications counter test")
     public void notificationsTest() {
         app.getUserHelper().loginAs(PropertyLoader.loadProperty("github.login"), PropertyLoader.loadProperty("github.pass"));
         app.getNavigationHelper().openNotificationsPage();

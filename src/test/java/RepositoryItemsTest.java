@@ -1,5 +1,6 @@
 import com.qa.hometask.utils.PropertyLoader;
-        import org.testng.Assert;
+import io.qameta.allure.Description;
+import org.testng.Assert;
         import org.testng.annotations.Test;
 
 public class RepositoryItemsTest extends TestBase {
@@ -7,6 +8,7 @@ public class RepositoryItemsTest extends TestBase {
     private int expectedFilesNumber = 6;
 
     @Test(groups = "login")
+    @Description("Check the number of files and directories in the repository")
     public void repositoryItemsTest() {
         app.getUserHelper().loginAs(PropertyLoader.loadProperty("github.login"), PropertyLoader.loadProperty("github.pass"));
         app.getNavigationHelper().goToGithubLink("bonigarcia/webdrivermanager/");

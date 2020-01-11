@@ -1,8 +1,10 @@
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ViewerTest extends TestBase {
     @Test
+    @Description("Check the repository search")
     public void viewerTest() {
         app.getNavigationHelper().goToGithubLink();
         app.getRepoHelper().searchForRepo("Java");
