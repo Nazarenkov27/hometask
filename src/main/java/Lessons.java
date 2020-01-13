@@ -7,10 +7,10 @@ public class Lessons {
         int[] randomArray = getRandomArray();
         Number one = new Number(randomArray);
 
-        System.out.println();
-        System.out.println("The sum is: " + one.getSum());
-        System.out.println("The sum with string: " + one.getSum("random!"));
-        System.out.println("The sum with int: " + one.getSum(42));
+//        System.out.println();
+//        System.out.println("The sum is: " + one.getSum());
+//        System.out.println("The sum with string: " + one.getSum("random!"));
+//        System.out.println("The sum with int: " + one.getSum(42));
     }
 
     public static int[] getRandomArray() {
@@ -23,4 +23,5 @@ public class Lessons {
         }
         return randomArray;
     }
+
 }
