@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageManager {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     public HomePage homePage;
     public SearchPage searchPage;
     public LogInPage logInPage;
@@ -32,7 +32,7 @@ public class PageManager {
         return page;
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 }

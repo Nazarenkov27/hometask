@@ -1,7 +1,10 @@
+import com.qa.hometask.utils.CustomerTestListener;
 import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(CustomerTestListener.class)
 public class RepoRatingTest extends TestBase {
 
         @Test
