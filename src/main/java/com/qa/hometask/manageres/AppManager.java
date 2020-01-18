@@ -20,7 +20,7 @@ public class AppManager {
 
     AppManager() {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions().addArguments("start-maximized");
+        ChromeOptions options = new ChromeOptions().addArguments("--window-size=1920x1080").addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
