@@ -12,7 +12,7 @@ public class NotificationsTest extends TestBase {
     String expectedTabName = "Notifications";
 
     @Test(groups = "login")
-    @Description ("Notifications counter test")
+    @Description("Notifications counter test")
     public void notificationsTest() {
         app.getUserHelper().loginAs(PropertyLoader.loadProperty("github.login"), PropertyLoader.loadProperty("github.pass"));
         app.getNavigationHelper().openNotificationsPage();
@@ -20,5 +20,4 @@ public class NotificationsTest extends TestBase {
         Assert.assertEquals(app.getAttributesHelper().getTabsNumber(), expectedTabsNumber);
         Assert.assertEquals(app.getAttributesHelper().getFirstTabName(), expectedTabName);
     }
-
 }

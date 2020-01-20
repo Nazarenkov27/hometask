@@ -10,7 +10,7 @@ public class AboutPage extends Page {
         super(pages);
     }
 
-    @FindBy (xpath = "//div/a[contains(@href, 'twitter')]")
+    @FindBy(xpath = "//div/a[contains(@href, 'twitter')]")
     private WebElement followButton;
 
     public void followTwitter() {

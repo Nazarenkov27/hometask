@@ -25,5 +25,4 @@ public class NotificationsPage extends Page {
         wait.until(ExpectedConditions.visibilityOf(tabsList.get(0)));
         return tabsList.get(0).getText();
     }
-
 }

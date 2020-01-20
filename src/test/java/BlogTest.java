@@ -10,6 +10,7 @@ public class BlogTest extends TestBase {
 
     String logoName = "The GitHub Blog";
     String allPostsHeader = "All posts";
+
     @Test(groups = "login")
     @Description("Check the blog page")
     public void blogTest() {

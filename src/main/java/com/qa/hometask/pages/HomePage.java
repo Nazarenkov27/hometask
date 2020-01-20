@@ -21,7 +21,7 @@ public class HomePage extends Page {
     private WebElement blogLink;
     @FindBy(xpath = "//input[@name = 'q']")
     private WebElement searchField;
-    @FindBy(xpath = "//span[@class = 'mail-status ']/..")
+    @FindBy(xpath = "//*[contains (@class, 'notification-indicator')]")
     private WebElement notificationIcon;
 
     public void showMenu() {

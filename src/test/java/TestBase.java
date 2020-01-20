@@ -23,7 +23,7 @@ class TestBase {
     }
 
     @AfterMethod()
-    @Step ("Log the user out")
+    @Step("Log the user out")
     public void afterMethod() {
         app.getNavigationHelper().goToGithubLink("logout/");
         driver.manage().deleteAllCookies();

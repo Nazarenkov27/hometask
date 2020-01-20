@@ -10,9 +10,9 @@ public class TwitterPage extends Page {
         super(pages);
     }
 
-    @FindBy (xpath = "//h1/a")
+    @FindBy(xpath = "//h1/a")
     private WebElement twitterName;
-    @FindBy (xpath = "//h1/span/a/span[contains(@class, 'verified')]")
+    @FindBy(xpath = "//h1/span/a/span[contains(@class, 'verified')]")
     private WebElement verifiedIcon;
 
     public boolean verifyTwitterAccount() {
@@ -20,12 +20,12 @@ public class TwitterPage extends Page {
         return verifiedIcon.isDisplayed();
     }
 
-    public String getTwitterName(){
+    public String getTwitterName() {
         wait.until(ExpectedConditions.visibilityOf(twitterName));
         return twitterName.getText();
     }
 
-    public String getTwitterLink(){
+    public String getTwitterLink() {
         return driver.getCurrentUrl();
     }
 }

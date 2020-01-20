@@ -15,7 +15,7 @@ public class SearchPage extends Page {
 
     @FindBy(xpath = "(id('jump-to-results')/li)[2]")
     private WebElement firstSearchResult;
-    @FindBy(xpath = "//ul[@class = 'repo-list']/li/div/h3")
+    @FindBy(xpath = "//ul[@class = 'repo-list']/li/div/div/a")
     private List<WebElement> searchResultList;
     @FindBy(xpath = "//summary/i")
     private WebElement sortOptionsMenuButtonLocator;

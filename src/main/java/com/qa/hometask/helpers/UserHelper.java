@@ -9,7 +9,7 @@ public class UserHelper extends PageManager {
         super(AppManager.getWebDriver());
     }
 
-    @Step ("Log in as {0} with the password {1}")
+    @Step("Log in as {0} with the password {1}")
     public void loginAs(String login, String pass) {
         logInPage.loginInput(login);
         logInPage.passwordInput(pass);
