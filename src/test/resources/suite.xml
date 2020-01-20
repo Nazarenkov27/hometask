@@ -90,4 +90,13 @@
             </class>
         </classes>
     </test>
+    <test name="FollowTwitterTest">
+        <classes>
+            <class name="FollowTwitterTest">
+                <methods>
+                    <include name="followTwitterTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

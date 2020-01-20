@@ -32,5 +32,16 @@ public class AttributesHelper extends PageManager {
         return notificationsPage.getFirstTabName();
     }
 
+    public String getTwitterName() {
+        return twitterPage.getTwitterName();
+    }
+
+    public boolean verifyTwitterAccount(){
+        return twitterPage.verifyTwitterAccount();
+    }
+
+    public String getTwitterLink() {
+        return twitterPage.getTwitterLink();
+    }
 
 }

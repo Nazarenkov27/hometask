@@ -28,4 +28,9 @@ public class NavigationHelper extends PageManager {
         driver.navigate().to(PropertyLoader.loadProperty("github.link"));
     }
 
+    @Step("Go to the Twitter page")
+    public void goToTwitter(){
+        aboutPage.followTwitter();
+    }
+
 }
