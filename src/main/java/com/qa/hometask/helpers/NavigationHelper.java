@@ -10,10 +10,12 @@ public class NavigationHelper extends PageManager {
         super(AppManager.getWebDriver());
     }
 
+    @Step("Open /notifications page")
     public void openNotificationsPage() {
         homePage.openNotificationsPage();
     }
 
+    @Step("Open /blog page")
     public void goToBlog() {
         homePage.goToBlog();
     }
@@ -25,11 +27,11 @@ public class NavigationHelper extends PageManager {
 
     @Step("Navigate to github.com/")
     public void goToGithubLink() {
-        driver.navigate().to(PropertyLoader.loadProperty("github.link"));
+        driver.navigate().to(PropertyLoader.loadProperty("github.link")); // this method could be replaces with goToGithubLink("")';
     }
 
     @Step("Go to the Twitter page")
-    public void goToTwitter(){
+    public void goToTwitter() {
         aboutPage.followTwitter();
     }
 

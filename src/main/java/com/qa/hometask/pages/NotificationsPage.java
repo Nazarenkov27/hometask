@@ -1,6 +1,7 @@
 package com.qa.hometask.pages;
 
 import com.qa.hometask.manageres.PageManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,12 +16,13 @@ public class NotificationsPage extends Page {
     @FindBy(xpath = "//nav[@class ='tabnav-tabs']/a")
     private List<WebElement> tabsList;
 
+    @Step("Get the number of tabs")
     public int getTabsNumber() {
         wait.until(ExpectedConditions.visibilityOf(tabsList.get(0)));
-        int tabsNumber = tabsList.size();
-        return tabsNumber;
+        return tabsList.size();
     }
 
+    @Step("Get the name of the first tab")
     public String getFirstTabName() {
         wait.until(ExpectedConditions.visibilityOf(tabsList.get(0)));
         return tabsList.get(0).getText();

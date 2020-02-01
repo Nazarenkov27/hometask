@@ -24,7 +24,6 @@ public class AppManager {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
         userHelper = new UserHelper();
         navigationHelper = new NavigationHelper();
         notificationsHelper = new NotificationsHelper();

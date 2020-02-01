@@ -54,13 +54,11 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
             <version>2.13.1</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.0.0</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
@@ -99,3 +97,4 @@
         </plugins>
     </build>
 </project>
+<!--TODO Create profile for running only twitter test-->

@@ -16,10 +16,12 @@ public class UserHelper extends PageManager {
         logInPage.loginSubmit();
     }
 
+    @Step("Show the menu")
     public void showMenu() {
         homePage.showMenu();
     }
 
+    @Step("Get the name of profile")
     public String getProfileName() {
         return homePage.getProfileName();
     }

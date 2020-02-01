@@ -14,11 +14,12 @@ public class RepoHelper extends PageManager {
         super(AppManager.getWebDriver());
     }
 
-
+    @Step("Select first result")
     public void selectFirstResult() {
         searchPage.selectFirstSearchResult();
     }
 
+    @Step("Get the search field value")
     public String getSearchValue() {
         return homePage.getSearchFieldValue();
     }
@@ -29,6 +30,7 @@ public class RepoHelper extends PageManager {
         searchPage.selectFirstSearchResult();
     }
 
+    @Step("Get the list of repositories")
     public List<String> getRepoListValue() {
         List<String> list = new ArrayList<>();
         for (WebElement item : searchPage.getRepoList()) {
@@ -37,11 +39,12 @@ public class RepoHelper extends PageManager {
         return list;
     }
 
+    @Step("Sort repositories list by Fewer Stars")
     public void sortByFewerStars() {
         searchPage.sortByFewerStars();
     }
 
-
+    @Step("Get repositories ratings")
     public List<String> getRepoRatingValue() {
         List<String> list = new ArrayList<>();
         for (WebElement item : searchPage.getRepoRating()) {
@@ -51,7 +54,7 @@ public class RepoHelper extends PageManager {
 
     }
 
-
+    @Step("Get the sum of repositories ratings")
     public int getRatingSum() {
         int ratingSum = 0;
         List<String> list = new ArrayList<>();
@@ -71,10 +74,10 @@ public class RepoHelper extends PageManager {
         return ratingSum;
     }
 
+    @Step("Get the value of the {0} language")
     public int getLanguageValue(String languageName) {
         int languageValue = Integer.parseInt(driver.findElement(By.xpath("//a[contains(.,'" + languageName + "')]/span"))
                 .getText().replaceAll(",", ""));
         return languageValue;
     }
-
 }

@@ -11,13 +11,11 @@ public class PropertyLoader {
         try {
             props.load(PropertyLoader.class.getResourceAsStream(GENERAL_PROP_FILE));
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalArgumentException(e);
         }
-        String value = "";
         if (name != null) {
-            value = props.getProperty(name);
-
+            return props.getProperty(name);
         }
-        return value;
+        return "";
     }
 }

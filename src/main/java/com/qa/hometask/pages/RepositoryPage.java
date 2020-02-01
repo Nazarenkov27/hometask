@@ -1,6 +1,7 @@
 package com.qa.hometask.pages;
 
 import com.qa.hometask.manageres.PageManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,15 +19,15 @@ public class RepositoryPage extends Page {
     @FindBy(xpath = "//tbody/tr[td[@class='icon']/*[name()='svg'][@aria-label='directory']]")
     private List<WebElement> directoriesList;
 
+    @Step("Get the number of files")
     public int getFilesNumber() {
         wait.until(ExpectedConditions.visibilityOf(filesList.get(0)));
-        int filesCount = filesList.size();
-        return filesCount;
+        return filesList.size();
     }
 
+    @Step("Get the number of directories")
     public int getDirectoriesNumber() {
         wait.until(ExpectedConditions.visibilityOf(directoriesList.get(0)));
-        int directoriesCount = directoriesList.size();
-        return directoriesCount;
+        return directoriesList.size();
     }
 }

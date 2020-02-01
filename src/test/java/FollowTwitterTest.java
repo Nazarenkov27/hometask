@@ -12,7 +12,7 @@ public class FollowTwitterTest extends TestBase {
 
     @Test
     @Description("Check the transition ot the proper twitter page")
-    public void followTwitter() {
+    public void followTwitterTest() {
         app.getNavigationHelper().goToGithubLink("about/");
         app.getNavigationHelper().goToTwitter();
         Assert.assertEquals(app.getAttributesHelper().getTwitterLink(), expectedLink);

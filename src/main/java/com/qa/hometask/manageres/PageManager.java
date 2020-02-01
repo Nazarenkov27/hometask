@@ -19,7 +19,7 @@ public class PageManager {
     public TwitterPage twitterPage;
 
     public PageManager(WebDriver webDriver) {
-        this.driver = webDriver;
+        driver = webDriver;
         homePage = initElements(new HomePage(this));
         searchPage = initElements(new SearchPage(this));
         logInPage = initElements(new LogInPage(this));

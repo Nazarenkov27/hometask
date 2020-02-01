@@ -1,6 +1,7 @@
 package com.qa.hometask.pages;
 
 import com.qa.hometask.manageres.PageManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,30 +27,31 @@ public class SearchPage extends Page {
     @FindBy(xpath = "//a[@class='muted-link']")
     private List<WebElement> repoRating;
 
-
+    @Step("Select the first search result")
     public void selectFirstSearchResult() {
         wait.until(ExpectedConditions.visibilityOf(firstSearchResult));
         firstSearchResult.click();
     }
 
+    @Step("Get the list of repositories")
     public List<WebElement> getRepoList() {
         wait.until(ExpectedConditions.visibilityOf(searchResultList.get(0)));
         return searchResultList;
     }
 
+    @Step("Get the list of repositories ratings")
     public List<WebElement> getRepoRating() {
         wait.until(ExpectedConditions.visibilityOf(repoRating.get(0)));
         return repoRating;
     }
 
+    @Step("Sort repositories list by fewer stars")
     public void sortByFewerStars() {
-
         wait.until(ExpectedConditions.visibilityOf(sortOptionsMenuButtonLocator));
         sortOptionsMenuButtonLocator.click();
         wait.until(ExpectedConditions.visibilityOf(fewerStarsOptionLocator));
         fewerStarsOptionLocator.click();
         wait.until(ExpectedConditions.stalenessOf(searchResultList.get(0)));
     }
-
 
 }
