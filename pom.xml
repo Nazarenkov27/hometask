@@ -15,6 +15,8 @@
         <github.login>Nazarenkov27</github.login>
         <github.pass>d711815n</github.pass>
         <aspectj.version>1.9.5</aspectj.version>
+        <suite.file>src/test/resources/suite.xml</suite.file>
+        <driver.props>start-maximized</driver.props>
     </properties>
     <dependencies>
         <dependency>
@@ -83,7 +85,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suite.xml</suiteXmlFile>
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -100,23 +102,16 @@
     <profiles>
         <profile>
             <id>twitter</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.21.0</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/twitter.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suite.file>src/test/resources/twitter.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>headless</id>
+            <properties>
+                <driver.props>--headless</driver.props>
+            </properties>
         </profile>
     </profiles>
 </project>
+        <!--TODO: profile for headless mode-->
