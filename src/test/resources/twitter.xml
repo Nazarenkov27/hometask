@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="twitterTestSuite">
+    <test name="FollowTwitterTest">
+        <classes>
+            <class name="FollowTwitterTest">
+                <methods>
+                    <include name="followTwitterTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

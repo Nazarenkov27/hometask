@@ -17,11 +17,17 @@
         <aspectj.version>1.9.5</aspectj.version>
         <suite.file>src/test/resources/suite.xml</suite.file>
         <driver.props>start-maximized</driver.props>
+        <browser.name>chrome</browser.name>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-firefox-driver</artifactId>
             <version>3.141.59</version>
         </dependency>
         <dependency>
@@ -112,6 +118,11 @@
                 <driver.props>--headless</driver.props>
             </properties>
         </profile>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <browser.name>firefox</browser.name>
+            </properties>
+        </profile>
     </profiles>
 </project>
-        <!--TODO: profile for headless mode-->

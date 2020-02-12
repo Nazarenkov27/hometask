@@ -6,6 +6,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,11 +20,28 @@ public class AppManager {
     private static WebDriver driver;
 
     AppManager() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions()
-                .addArguments("--window-size=1920,1080")
-                .addArguments(PropertyLoader.loadProperty("driver.props"));
-        driver = new ChromeDriver(options);
+        String browserName = PropertyLoader.loadProperty("browser.name");
+        switch (browserName) {
+            case "chrome":
+            {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions()
+                        .addArguments("--window-size=1920,1080")
+                        .addArguments(PropertyLoader.loadProperty("driver.props"));
+                driver = new ChromeDriver(options);
+            }
+                break;
+            case "firefox":
+                {
+                    WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions options = new FirefoxOptions()
+                            .addArguments("--window-size=1920,1080")
+                            .addArguments(PropertyLoader.loadProperty("driver.props"));
+                    driver = new FirefoxDriver();
+                }
+            break;
+        }
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         userHelper = new UserHelper();
