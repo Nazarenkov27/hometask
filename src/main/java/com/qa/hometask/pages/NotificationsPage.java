@@ -13,7 +13,7 @@ public class NotificationsPage extends Page {
         super(pages);
     }
 
-    @FindBy(xpath = "//nav[@class ='tabnav-tabs']/a")
+    @FindBy(xpath = "//nav[@aria-label='Notifications']/ul[1]/li")
     private List<WebElement> tabsList;
 
     @Step("Get the number of tabs")
